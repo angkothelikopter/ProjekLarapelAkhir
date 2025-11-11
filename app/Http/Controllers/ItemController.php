@@ -32,12 +32,14 @@ class ItemController extends Controller
         return redirect()->route('items.index')->with('success', 'Barang berhasil ditambahkan.');
     }
 
-    public function edit($id)
+   public function edit($id)
 {
     $item = Item::findOrFail($id);
-    $laboratories = Laboratory::all();
-    return view('items.edit', compact('item', 'laboratories'));
+    $labs = Laboratory::all(); 
+
+    return view('items.edit', compact('item', 'labs')); 
 }
+
 
 
     public function update(Request $request, Item $item)
